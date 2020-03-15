@@ -15,7 +15,7 @@ namespace ActionPredicate
             list.Add(new Product("Tablet", 350.50));
             list.Add(new Product("HD Case", 80.90));
 
-            Action<Product> act = UpdatePrice;
+            Action<Product> act = p => { p.Price += p.Price * 0.1; }; //Qnd a função está entre chaves, é pq ela n retorna nada e é void
 
             list.ForEach(act);
 
@@ -24,11 +24,6 @@ namespace ActionPredicate
                 Console.WriteLine(p);
             }
 
-        }
-
-        static void UpdatePrice (Product p)
-        {
-            p.Price += p.Price * 0.1;
         }
     }
 }
